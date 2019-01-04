@@ -7,4 +7,12 @@ Die Gruppenmitglieder sind:
 
 
 ## How to use:
-Bitte laden Sie sich die Datei: 
+1. Bitte laden Sie sich die folgenden Dateien herunter: 
+- Treiber.Rmd	
+- Treiber.nb.html
+
+2. Öffnen Sie Treiber.Rmd mit RStudio
+
+3. Installieren Sie sich gegebenenfalls das R Notebook addin
+
+4. Führen Sie die einzelnen Chunks in der dargestellten Reihenfolge aus
