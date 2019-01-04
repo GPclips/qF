@@ -8,7 +8,7 @@ Die Gruppenmitglieder sind:
 
 ## How to use:
 1. Bitte laden Sie sich die folgenden Dateien herunter: 
-- Treiber.Rmd: https://raw.githubusercontent.com/GPclips/qF/master/Treiber.Rmd
+- Treiber.Rmd: <a href="https://raw.githubusercontent.com/GPclips/qF/master/Treiber.Rmd" download="Treiber.Rmd">download this</a>
 - Treiber.nb.html
 
 2. Öffnen Sie Treiber.Rmd mit RStudio
