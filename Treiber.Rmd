@@ -1,0 +1,57 @@
+---
+title: "Quantitative Forschung"
+output: html_notebook
+---
+
+#Install Package
+```{r}
+pathToPackage <- dirname(rstudioapi::getSourceEditorContext()$path)
+setwd(pathToPackage)
+install.packages(pathToPackage, repos = NULL, type = "source")
+```
+
+#Load Package
+```{r}
+library("qF")
+init_projekt()
+```
+
+#Hypothese 1
+```{r}
+
+```
+
+#Hypothese 2
+```{r}
+dataH2 <- prepareDataH2()
+
+#Graphical printout
+xyplot(amountStudents ~ billion_eur, data=dataH2, xlab="BIP/Year [Billion Euros]", ylab="Amount Students/Year", main="Scatterplot: Amount Students/Year ~ BIP/Year [Billion Euros]")
+
+#Analyze data
+cnt <- 10000
+analyzeCovariance(dataH2, cnt)
+analyseCorrelationCoefficient(dataH2, cnt)
+summary(lm(amountStudents ~ billion_eur, data=dataH2))
+plotLmH2(dataH2)
+
+```
+
+#Hypothese 3
+```{r}
+dataH3 <- prepareDataH3()
+
+#Graphical Printout
+bargraph(~toJapan | gender, success = "Yes", data = dataH3, type = "percent", main = "Barchart: Percentage Male and Female applying for Japan", xlab = "Applying for Japan", ylab = "Percentage")
+prop(requestedCountry~gender, success = "Japan", data = dataH3)
+
+#Analyze Data
+female <- dataH3 %>% filter(gender == "Female")
+maleJapan <- dataH3 %>% filter(gender == "Male")
+propMaleToJapan <- prop(~toJapan, success = "Yes", data = maleJapan)
+cnt <- 10000
+set.seed(007)
+bootPercentFemale <- analyzePercentJapan(female, cnt)
+pValueH3 <- prop(~ t <= propMaleToJapan, data = bootPercentFemale)
+print(pValueH3)
+```

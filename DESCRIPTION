@@ -1,0 +1,14 @@
+Package: qF
+Title: Quantitative Forschung
+Version: 1.2.5
+Authors@R: 
+    person(given = "Lars Matz",
+           family = "Müller",
+           role = c("aut", "cre"),
+           email = "lars.matz.mueller@gmail.com")
+Depends: R (>= 3.1.0), mosaic, lubridate, boot, plyr, lattice, ggplot2
+Description: Encapsulates the research project of the subject Quantitative Forschung.
+License: MIT
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.1.1
