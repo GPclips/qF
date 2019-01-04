@@ -1,5 +1,4 @@
-# qF
-## Quantitative Forschung
+## Package qF
 Dieses Repository beinhaltet die Dateien für den Teil sonstige Beteiligung des Faches "Quantitative Forschung".
 Die Gruppenmitglieder sind: 
 - Jennifer Thieser
