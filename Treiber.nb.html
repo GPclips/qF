@@ -243,10 +243,9 @@ $(document).ready(function () {
 <h1>Install Package</h1>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucGF0aFRvUGFja2FnZSA8LSBkaXJuYW1lKHJzdHVkaW9hcGk6OmdldFNvdXJjZUVkaXRvckNvbnRleHQoKSRwYXRoKVxuc2V0d2QocGF0aFRvUGFja2FnZSlcbmluc3RhbGwucGFja2FnZXMocGF0aFRvUGFja2FnZSwgcmVwb3MgPSBOVUxMLCB0eXBlID0gXCJzb3VyY2VcIilcbmBgYCJ9 -->
-<pre class="r"><code>pathToPackage &lt;- dirname(rstudioapi::getSourceEditorContext()$path)
-setwd(pathToPackage)
-install.packages(pathToPackage, repos = NULL, type = &quot;source&quot;)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxucGF0aFRvUGFja2FnZSA8LSBkaXJuYW1lKHJzdHVkaW9hcGk6OmdldFNvdXJjZUVkaXRvckNvbnRleHQoKSRwYXRoKVxuc2V0d2QocGF0aFRvUGFja2FnZSlcbmluc3RhbGwucGFja2FnZXMocGF0aFRvUGFja2FnZSwgcmVwb3MgPSBOVUxMLCB0eXBlID0gXFxzb3VyY2VcXClcbmBgYFxuYGBgIn0= -->
+<p><code>r</code>r pathToPackage &lt;- dirname(rstudioapi::getSourceEditorContext()$path) setwd(pathToPackage) install.packages(pathToPackage, repos = NULL, type = )</p>
+<pre><code></code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
@@ -255,9 +254,9 @@ install.packages(pathToPackage, repos = NULL, type = &quot;source&quot;)</code><
 <h1>Load Package</h1>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShcInFGXCIpXG5pbml0X3Byb2pla3QoKVxuYGBgIn0= -->
-<pre class="r"><code>library(&quot;qF&quot;)
-init_projekt()</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxubGlicmFyeShcXHFGXFwpXG5pbml0X3Byb2pla3QoKVxuYGBgXG5gYGAifQ== -->
+<p><code>r</code>r library() init_projekt()</p>
+<pre><code></code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
@@ -273,19 +272,17 @@ init_projekt()</code></pre>
 <h1>Hypothese 2</h1>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZGF0YUgyIDwtIHByZXBhcmVEYXRhSDIoKVxuXG4jR3JhcGhpY2FsIHByaW50b3V0XG54eXBsb3QoYW1vdW50U3R1ZGVudHMgfiBiaWxsaW9uX2V1ciwgZGF0YT1kYXRhSDIsIHhsYWI9XCJCSVAvWWVhciBbQmlsbGlvbiBFdXJvc11cIiwgeWxhYj1cIkFtb3VudCBTdHVkZW50cy9ZZWFyXCIsIG1haW49XCJTY2F0dGVycGxvdDogQW1vdW50IFN0dWRlbnRzL1llYXIgfiBCSVAvWWVhciBbQmlsbGlvbiBFdXJvc11cIilcblxuI0FuYWx5emUgZGF0YVxuY250IDwtIDEwMDAwXG5hbmFseXplQ292YXJpYW5jZShkYXRhSDIsIGNudClcbmFuYWx5c2VDb3JyZWxhdGlvbkNvZWZmaWNpZW50KGRhdGFIMiwgY250KVxuc3VtbWFyeShsbShhbW91bnRTdHVkZW50cyB+IGJpbGxpb25fZXVyLCBkYXRhPWRhdGFIMikpXG5wbG90TG1IMihkYXRhSDIpXG5cbmBgYCJ9 -->
-<pre class="r"><code>dataH2 &lt;- prepareDataH2()
-
-#Graphical printout
-xyplot(amountStudents ~ billion_eur, data=dataH2, xlab=&quot;BIP/Year [Billion Euros]&quot;, ylab=&quot;Amount Students/Year&quot;, main=&quot;Scatterplot: Amount Students/Year ~ BIP/Year [Billion Euros]&quot;)
-
-#Analyze data
-cnt &lt;- 10000
-analyzeCovariance(dataH2, cnt)
-analyseCorrelationCoefficient(dataH2, cnt)
-summary(lm(amountStudents ~ billion_eur, data=dataH2))
-plotLmH2(dataH2)
-</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuZGF0YUgyIDwtIHByZXBhcmVEYXRhSDIoKVxuXG4jR3JhcGhpY2FsIHByaW50b3V0XG54eXBsb3QoYW1vdW50U3R1ZGVudHMgfiBiaWxsaW9uX2V1ciwgZGF0YT1kYXRhSDIsIHhsYWI9XFxCSVAvWWVhciBbQmlsbGlvbiBFdXJvc11cXCwgeWxhYj1cXEFtb3VudCBTdHVkZW50cy9ZZWFyXFwsIG1haW49XFxTY2F0dGVycGxvdDogQW1vdW50IFN0dWRlbnRzL1llYXIgfiBCSVAvWWVhciBbQmlsbGlvbiBFdXJvc11cXClcblxuI0FuYWx5emUgZGF0YVxuY250IDwtIDEwMDAwXG5hbmFseXplQ292YXJpYW5jZShkYXRhSDIsIGNudClcbmFuYWx5c2VDb3JyZWxhdGlvbkNvZWZmaWNpZW50KGRhdGFIMiwgY250KVxuc3VtbWFyeShsbShhbW91bnRTdHVkZW50cyB+IGJpbGxpb25fZXVyLCBkYXRhPWRhdGFIMikpXG5wbG90TG1IMihkYXRhSDIpXG5cbmBgYFxuYGBgIn0= -->
+<p><code>r</code>r dataH2 &lt;- prepareDataH2()</p>
+</div>
+<div id="graphical-printout" class="section level1">
+<h1>Graphical printout</h1>
+<p>xyplot(amountStudents ~ billion_eur, data=dataH2, xlab=/Year [Billion Euros], ylab=Students/Year, main=: Amount Students/Year ~ BIP/Year [Billion Euros])</p>
+</div>
+<div id="analyze-data" class="section level1">
+<h1>Analyze data</h1>
+<p>cnt &lt;- 10000 analyzeCovariance(dataH2, cnt) analyseCorrelationCoefficient(dataH2, cnt) summary(lm(amountStudents ~ billion_eur, data=dataH2)) plotLmH2(dataH2)</p>
+<pre><code></code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
@@ -294,27 +291,22 @@ plotLmH2(dataH2)
 <h1>Hypothese 3</h1>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZGF0YUgzIDwtIHByZXBhcmVEYXRhSDMoKVxuXG4jR3JhcGhpY2FsIFByaW50b3V0XG5iYXJncmFwaCh+dG9KYXBhbiB8IGdlbmRlciwgc3VjY2VzcyA9IFwiWWVzXCIsIGRhdGEgPSBkYXRhSDMsIHR5cGUgPSBcInBlcmNlbnRcIiwgbWFpbiA9IFwiQmFyY2hhcnQ6IFBlcmNlbnRhZ2UgTWFsZSBhbmQgRmVtYWxlIGFwcGx5aW5nIGZvciBKYXBhblwiLCB4bGFiID0gXCJBcHBseWluZyBmb3IgSmFwYW5cIiwgeWxhYiA9IFwiUGVyY2VudGFnZVwiKVxucHJvcChyZXF1ZXN0ZWRDb3VudHJ5fmdlbmRlciwgc3VjY2VzcyA9IFwiSmFwYW5cIiwgZGF0YSA9IGRhdGFIMylcblxuI0FuYWx5emUgRGF0YVxuZmVtYWxlIDwtIGRhdGFIMyAlPiUgZmlsdGVyKGdlbmRlciA9PSBcIkZlbWFsZVwiKVxubWFsZUphcGFuIDwtIGRhdGFIMyAlPiUgZmlsdGVyKGdlbmRlciA9PSBcIk1hbGVcIilcbnByb3BNYWxlVG9KYXBhbiA8LSBwcm9wKH50b0phcGFuLCBzdWNjZXNzID0gXCJZZXNcIiwgZGF0YSA9IG1hbGVKYXBhbilcbmNudCA8LSAxMDAwMFxuc2V0LnNlZWQoMDA3KVxuYm9vdFBlcmNlbnRGZW1hbGUgPC0gYW5hbHl6ZVBlcmNlbnRKYXBhbihmZW1hbGUsIGNudClcbnBWYWx1ZUgzIDwtIHByb3AofiB0IDw9IHByb3BNYWxlVG9KYXBhbiwgZGF0YSA9IGJvb3RQZXJjZW50RmVtYWxlKVxucHJpbnQocFZhbHVlSDMpXG5gYGAifQ== -->
-<pre class="r"><code>dataH3 &lt;- prepareDataH3()
-
-#Graphical Printout
-bargraph(~toJapan | gender, success = &quot;Yes&quot;, data = dataH3, type = &quot;percent&quot;, main = &quot;Barchart: Percentage Male and Female applying for Japan&quot;, xlab = &quot;Applying for Japan&quot;, ylab = &quot;Percentage&quot;)
-prop(requestedCountry~gender, success = &quot;Japan&quot;, data = dataH3)
-
-#Analyze Data
-female &lt;- dataH3 %&gt;% filter(gender == &quot;Female&quot;)
-maleJapan &lt;- dataH3 %&gt;% filter(gender == &quot;Male&quot;)
-propMaleToJapan &lt;- prop(~toJapan, success = &quot;Yes&quot;, data = maleJapan)
-cnt &lt;- 10000
-set.seed(007)
-bootPercentFemale &lt;- analyzePercentJapan(female, cnt)
-pValueH3 &lt;- prop(~ t &lt;= propMaleToJapan, data = bootPercentFemale)
-print(pValueH3)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuZGF0YUgzIDwtIHByZXBhcmVEYXRhSDMoKVxuXG4jR3JhcGhpY2FsIFByaW50b3V0XG5iYXJncmFwaCh+dG9KYXBhbiB8IGdlbmRlciwgc3VjY2VzcyA9IFxcWWVzXFwsIGRhdGEgPSBkYXRhSDMsIHR5cGUgPSBcXHBlcmNlbnRcXCwgbWFpbiA9IFxcQmFyY2hhcnQ6IFBlcmNlbnRhZ2UgTWFsZSBhbmQgRmVtYWxlIGFwcGx5aW5nIGZvciBKYXBhblxcLCB4bGFiID0gXFxBcHBseWluZyBmb3IgSmFwYW5cXCwgeWxhYiA9IFxcUGVyY2VudGFnZVxcKVxucHJvcChyZXF1ZXN0ZWRDb3VudHJ5fmdlbmRlciwgc3VjY2VzcyA9IFxcSmFwYW5cXCwgZGF0YSA9IGRhdGFIMylcblxuI0FuYWx5emUgRGF0YVxuZmVtYWxlIDwtIGRhdGFIMyAlPiUgZmlsdGVyKGdlbmRlciA9PSBcXEZlbWFsZVxcKVxubWFsZUphcGFuIDwtIGRhdGFIMyAlPiUgZmlsdGVyKGdlbmRlciA9PSBcXE1hbGVcXClcbnByb3BNYWxlVG9KYXBhbiA8LSBwcm9wKH50b0phcGFuLCBzdWNjZXNzID0gXFxZZXNcXCwgZGF0YSA9IG1hbGVKYXBhbilcbmNudCA8LSAxMDAwMFxuc2V0LnNlZWQoMDA3KVxuYm9vdFBlcmNlbnRGZW1hbGUgPC0gYW5hbHl6ZVBlcmNlbnRKYXBhbihmZW1hbGUsIGNudClcbnBWYWx1ZUgzIDwtIHByb3AofiB0IDw9IHByb3BNYWxlVG9KYXBhbiwgZGF0YSA9IGJvb3RQZXJjZW50RmVtYWxlKVxucHJpbnQocFZhbHVlSDMpXG5gYGBcbmBgYCJ9 -->
+<p><code>r</code>r dataH3 &lt;- prepareDataH3()</p>
+</div>
+<div id="graphical-printout-1" class="section level1">
+<h1>Graphical Printout</h1>
+<p>bargraph(~toJapan | gender, success = , data = dataH3, type = , main = : Percentage Male and Female applying for Japan, xlab = for Japan, ylab = ) prop(requestedCountry~gender, success = , data = dataH3)</p>
+</div>
+<div id="analyze-data-1" class="section level1">
+<h1>Analyze Data</h1>
+<p>female &lt;- dataH3 %&gt;% filter(gender == ) maleJapan &lt;- dataH3 %&gt;% filter(gender == ) propMaleToJapan &lt;- prop(~toJapan, success = , data = maleJapan) cnt &lt;- 10000 set.seed(007) bootPercentFemale &lt;- analyzePercentJapan(female, cnt) pValueH3 &lt;- prop(~ t &lt;= propMaleToJapan, data = bootPercentFemale) print(pValueH3)</p>
+<pre><code></code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 </div>
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIlF1YW50aXRhdGl2ZSBGb3JzY2h1bmciDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KDQojSW5zdGFsbCBQYWNrYWdlDQpgYGB7cn0NCnBhdGhUb1BhY2thZ2UgPC0gZGlybmFtZShyc3R1ZGlvYXBpOjpnZXRTb3VyY2VFZGl0b3JDb250ZXh0KCkkcGF0aCkNCnNldHdkKHBhdGhUb1BhY2thZ2UpDQppbnN0YWxsLnBhY2thZ2VzKHBhdGhUb1BhY2thZ2UsIHJlcG9zID0gTlVMTCwgdHlwZSA9ICJzb3VyY2UiKQ0KYGBgDQoNCiNMb2FkIFBhY2thZ2UNCmBgYHtyfQ0KbGlicmFyeSgicUYiKQ0KaW5pdF9wcm9qZWt0KCkNCmBgYA0KDQojSHlwb3RoZXNlIDENCmBgYHtyfQ0KDQpgYGANCg0KI0h5cG90aGVzZSAyDQpgYGB7cn0NCmRhdGFIMiA8LSBwcmVwYXJlRGF0YUgyKCkNCg0KI0dyYXBoaWNhbCBwcmludG91dA0KeHlwbG90KGFtb3VudFN0dWRlbnRzIH4gYmlsbGlvbl9ldXIsIGRhdGE9ZGF0YUgyLCB4bGFiPSJCSVAvWWVhciBbQmlsbGlvbiBFdXJvc10iLCB5bGFiPSJBbW91bnQgU3R1ZGVudHMvWWVhciIsIG1haW49IlNjYXR0ZXJwbG90OiBBbW91bnQgU3R1ZGVudHMvWWVhciB+IEJJUC9ZZWFyIFtCaWxsaW9uIEV1cm9zXSIpDQoNCiNBbmFseXplIGRhdGENCmNudCA8LSAxMDAwMA0KYW5hbHl6ZUNvdmFyaWFuY2UoZGF0YUgyLCBjbnQpDQphbmFseXNlQ29ycmVsYXRpb25Db2VmZmljaWVudChkYXRhSDIsIGNudCkNCnN1bW1hcnkobG0oYW1vdW50U3R1ZGVudHMgfiBiaWxsaW9uX2V1ciwgZGF0YT1kYXRhSDIpKQ0KcGxvdExtSDIoZGF0YUgyKQ0KDQpgYGANCg0KI0h5cG90aGVzZSAzDQpgYGB7cn0NCmRhdGFIMyA8LSBwcmVwYXJlRGF0YUgzKCkNCg0KI0dyYXBoaWNhbCBQcmludG91dA0KYmFyZ3JhcGgofnRvSmFwYW4gfCBnZW5kZXIsIHN1Y2Nlc3MgPSAiWWVzIiwgZGF0YSA9IGRhdGFIMywgdHlwZSA9ICJwZXJjZW50IiwgbWFpbiA9ICJCYXJjaGFydDogUGVyY2VudGFnZSBNYWxlIGFuZCBGZW1hbGUgYXBwbHlpbmcgZm9yIEphcGFuIiwgeGxhYiA9ICJBcHBseWluZyBmb3IgSmFwYW4iLCB5bGFiID0gIlBlcmNlbnRhZ2UiKQ0KcHJvcChyZXF1ZXN0ZWRDb3VudHJ5fmdlbmRlciwgc3VjY2VzcyA9ICJKYXBhbiIsIGRhdGEgPSBkYXRhSDMpDQoNCiNBbmFseXplIERhdGENCmZlbWFsZSA8LSBkYXRhSDMgJT4lIGZpbHRlcihnZW5kZXIgPT0gIkZlbWFsZSIpDQptYWxlSmFwYW4gPC0gZGF0YUgzICU+JSBmaWx0ZXIoZ2VuZGVyID09ICJNYWxlIikNCnByb3BNYWxlVG9KYXBhbiA8LSBwcm9wKH50b0phcGFuLCBzdWNjZXNzID0gIlllcyIsIGRhdGEgPSBtYWxlSmFwYW4pDQpjbnQgPC0gMTAwMDANCnNldC5zZWVkKDAwNykNCmJvb3RQZXJjZW50RmVtYWxlIDwtIGFuYWx5emVQZXJjZW50SmFwYW4oZmVtYWxlLCBjbnQpDQpwVmFsdWVIMyA8LSBwcm9wKH4gdCA8PSBwcm9wTWFsZVRvSmFwYW4sIGRhdGEgPSBib290UGVyY2VudEZlbWFsZSkNCnByaW50KHBWYWx1ZUgzKQ0KYGBgDQo=</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIlF1YW50aXRhdGl2ZSBGb3JzY2h1bmciDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KDQojSW5zdGFsbCBQYWNrYWdlDQpgYGB7cn0NCmluc3RhbGwucGFja2FnZXMoImRldnRvb2xzIikNCmxpYnJhcnkoImRldnRvb2xzIikNCmRldnRvb2xzOjppbnN0YWxsX2dpdGh1YigiR1BjbGlwcy9xRiIpDQpgYGANCg0KI0xvYWQgUGFja2FnZQ0KYGBge3J9DQpsaWJyYXJ5KCJxRiIpDQppbml0X3Byb2pla3QoKQ0KYGBgDQoNCiNIeXBvdGhlc2UgMQ0KYGBge3J9DQoNCmBgYA0KDQojSHlwb3RoZXNlIDINCmBgYHtyfQ0KZGF0YUgyIDwtIHByZXBhcmVEYXRhSDIoKQ0KDQojR3JhcGhpY2FsIHByaW50b3V0DQp4eXBsb3QoYW1vdW50U3R1ZGVudHMgfiBiaWxsaW9uX2V1ciwgZGF0YT1kYXRhSDIsIHhsYWI9IkJJUC9ZZWFyIFtCaWxsaW9uIEV1cm9zXSIsIHlsYWI9IkFtb3VudCBTdHVkZW50cy9ZZWFyIiwgbWFpbj0iU2NhdHRlcnBsb3Q6IEFtb3VudCBTdHVkZW50cy9ZZWFyIH4gQklQL1llYXIgW0JpbGxpb24gRXVyb3NdIikNCg0KI0FuYWx5emUgZGF0YQ0KY250IDwtIDEwMDAwDQphbmFseXplQ292YXJpYW5jZShkYXRhSDIsIGNudCkNCmFuYWx5c2VDb3JyZWxhdGlvbkNvZWZmaWNpZW50KGRhdGFIMiwgY250KQ0Kc3VtbWFyeShsbShhbW91bnRTdHVkZW50cyB+IGJpbGxpb25fZXVyLCBkYXRhPWRhdGFIMikpDQpwbG90TG1IMihkYXRhSDIpDQoNCmBgYA0KDQojSHlwb3RoZXNlIDMNCmBgYHtyfQ0KZGF0YUgzIDwtIHByZXBhcmVEYXRhSDMoKQ0KDQojR3JhcGhpY2FsIFByaW50b3V0DQpiYXJncmFwaCh+dG9KYXBhbiB8IGdlbmRlciwgc3VjY2VzcyA9ICJZZXMiLCBkYXRhID0gZGF0YUgzLCB0eXBlID0gInBlcmNlbnQiLCBtYWluID0gIkJhcmNoYXJ0OiBQZXJjZW50YWdlIE1hbGUgYW5kIEZlbWFsZSBhcHBseWluZyBmb3IgSmFwYW4iLCB4bGFiID0gIkFwcGx5aW5nIGZvciBKYXBhbiIsIHlsYWIgPSAiUGVyY2VudGFnZSIpDQpwcm9wKHJlcXVlc3RlZENvdW50cnl+Z2VuZGVyLCBzdWNjZXNzID0gIkphcGFuIiwgZGF0YSA9IGRhdGFIMykNCg0KI0FuYWx5emUgRGF0YQ0KZmVtYWxlIDwtIGRhdGFIMyAlPiUgZmlsdGVyKGdlbmRlciA9PSAiRmVtYWxlIikNCm1hbGVKYXBhbiA8LSBkYXRhSDMgJT4lIGZpbHRlcihnZW5kZXIgPT0gIk1hbGUiKQ0KcHJvcE1hbGVUb0phcGFuIDwtIHByb3AofnRvSmFwYW4sIHN1Y2Nlc3MgPSAiWWVzIiwgZGF0YSA9IG1hbGVKYXBhbikNCmNudCA8LSAxMDAwMA0Kc2V0LnNlZWQoMDA3KQ0KYm9vdFBlcmNlbnRGZW1hbGUgPC0gYW5hbHl6ZVBlcmNlbnRKYXBhbihmZW1hbGUsIGNudCkNCnBWYWx1ZUgzIDwtIHByb3AofiB0IDw9IHByb3BNYWxlVG9KYXBhbiwgZGF0YSA9IGJvb3RQZXJjZW50RmVtYWxlKQ0KcHJpbnQocFZhbHVlSDMpDQpgYGANCg==</div>
 
 
 

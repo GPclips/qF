@@ -5,9 +5,9 @@ output: html_notebook
 
 #Install Package
 ```{r}
-pathToPackage <- dirname(rstudioapi::getSourceEditorContext()$path)
-setwd(pathToPackage)
-install.packages(pathToPackage, repos = NULL, type = "source")
+install.packages("devtools")
+library("devtools")
+devtools::install_github("GPclips/qF")
 ```
 
 #Load Package
