@@ -1,5 +1,5 @@
 # qF
-##Quantitative Forschung
+## Quantitative Forschung
 Dieses Repository beinhaltet die Dateien für den Teil sonstige Beteiligung des Faches "Quantitative Forschung".
 Die Gruppenmitglieder sind: 
 - Jennifer Thieser
@@ -7,5 +7,5 @@ Die Gruppenmitglieder sind:
 - Lars M. Müller
 
 
-##How to use:
+## How to use:
 Bitte laden Sie sich die Datei: 
