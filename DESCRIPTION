@@ -1,4 +1,5 @@
 Package: qF
+Type: Package
 Title: Quantitative Forschung
 Version: 1.2.5
 Authors@R: 
