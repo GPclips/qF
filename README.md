@@ -9,10 +9,9 @@ Die Gruppenmitglieder sind:
 ## How to use:
 1. Bitte laden Sie sich die folgende Datei herunter: 
 - Treiber.Rmd: https://raw.githubusercontent.com/GPclips/qF/master/Treiber.Rmd
-
-1.1. Öffnen Sie den Link
-1.2. Rechtsklick -> Speichern unter
-1.3. Speichern Sie die Datei mit dem Namen: Treiber.Rmd
+1. Öffnen Sie den Link
+2. Rechtsklick -> Speichern unter
+3. Speichern Sie die Datei mit dem Namen: Treiber.Rmd
 
 2. Öffnen Sie Treiber.Rmd mit RStudio
 
