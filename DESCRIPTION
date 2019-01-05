@@ -1,7 +1,7 @@
 Package: qF
 Type: Package
 Title: Quantitative Forschung
-Version: 1.2.5
+Version: 2.0.0
 Authors@R: 
     person(given = "Lars Matz",
            family = "Müller",

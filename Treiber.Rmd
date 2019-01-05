@@ -3,55 +3,105 @@ title: "Quantitative Forschung"
 output: html_notebook
 ---
 
-#Install Package
+#1. Install Package
 ```{r}
 install.packages("devtools")
 library("devtools")
 devtools::install_github("GPclips/qF")
 ```
 
-#Load Package
+#2. Load Package
 ```{r}
 library("qF")
+```
+
+#3. Load Resources
+```{r}
 init_projekt()
 ```
 
-#Hypothese 1
+#4. Hypothese 1
 ```{r}
+#Prepare Data
+dataH1 <- prepareDataH1()
 
+#Graphical Printout
+bargraph(~toJapan | gender, success = "Yes", data = dataH1, type = "percent", main = "Barchart: Percentage Male and Female applying for Japan", xlab = "Applying for Japan", ylab = "Percentage")
+cat("------------------------ Percentage students going to Japan (by gender)", fill=TRUE)
+prop(requestedCountry~gender, success = "Japan", data = dataH1)
+
+#Analyze Data
+female <- dataH1 %>% filter(gender == "Female")
+male <- dataH1 %>% filter(gender == "Male")
+
+propMaleToJapan <- prop(~toJapan, success = "Yes", data = male)
+cat(propMaleToJapan, fill=TRUE, labels = "Percentage male going to Japan: ")
+
+cat("------------------------ Bootstrap: Percent Female going to Japan", fill=TRUE)
+cnt <- 10000
+cat(cnt, fill=TRUE, labels = "Using n Itterations: ")
+bootPercentFemale <- analyzePercentJapan(female, cnt)
+histogram(~ bootPercentFemale$t, xlab = "Percent Female", ylab = "Density", main="Histogram: Percent Female going to Japan")
+
+cat("------------------------ Calculate pValue", fill=TRUE)
+pValueH1 <- prop(~ t <= propMaleToJapan, data = bootPercentFemale)
+cat(pValueH1, fill=TRUE, labels = "pValue: ")
 ```
 
-#Hypothese 2
+#5. Hypothese 2
 ```{r}
+#Prepare Data
 dataH2 <- prepareDataH2()
 
 #Graphical printout
-xyplot(amountStudents ~ billion_eur, data=dataH2, xlab="BIP/Year [Billion Euros]", ylab="Amount Students/Year", main="Scatterplot: Amount Students/Year ~ BIP/Year [Billion Euros]")
+xyplot(y ~ x, data=dataH2, xlab="Customers' Age [Years]", ylab="Time span from oportunity to deal [Day(s)]", main="Scatterplot: Time span from oportunity to deal [Day(s)] ~ Customers' Age [Years]")
 
 #Analyze data
+cat("------------------------ Bootstrap: Covariance and Correlation Coefficient", fill=TRUE)
 cnt <- 10000
-analyzeCovariance(dataH2, cnt)
-analyseCorrelationCoefficient(dataH2, cnt)
-summary(lm(amountStudents ~ billion_eur, data=dataH2))
-plotLmH2(dataH2)
+c <- analyzeCovariance(dataH2, cnt)
+histogram(~ c$t, xlab = "Covariance", ylab = "Density", main="Histogram: COV(Customers' Age [Years], Time span from oportunity to deal [Day(s)])")
 
+cc <- analyseCorrelationCoefficient(dataH2, cnt)
+histogram(~ cc$t, xlab = "Correlation Coefficient", ylab = "Density", main="Histogram: COR(Customers' Age [Years], Time span from oportunity to deal [Day(s)])")
+
+cat("------------------------ LM: amountStudents ~ billion_eur", fill=TRUE)
+lmH2 <- lm(y ~ x, data=dataH2)
+cat("------ Summary ------", fill=TRUE)
+summary(lmH2)
+
+cat("------ Anova ------", fill=TRUE)
+anova(lmH2)
+plotLm(dataH2, "Customers' Age [Years]", "Time span from oportunity to deal [Day(s)]", "LM: Time span from oportunity to deal [Day(s)] ~ Customers' Age [Years]")
 ```
 
-#Hypothese 3
+
+#6. Hypothese 3
 ```{r}
+#Prepare Data
 dataH3 <- prepareDataH3()
 
-#Graphical Printout
-bargraph(~toJapan | gender, success = "Yes", data = dataH3, type = "percent", main = "Barchart: Percentage Male and Female applying for Japan", xlab = "Applying for Japan", ylab = "Percentage")
-prop(requestedCountry~gender, success = "Japan", data = dataH3)
+#Graphical printout
+xyplot(amountStudents ~ billion_eur, data=dataH3, xlab="BIP/Year [Billion Euros]", ylab="Amount Students/Year", main="Scatterplot: Amount Students/Year ~ BIP/Year [Billion Euros]")
 
-#Analyze Data
-female <- dataH3 %>% filter(gender == "Female")
-maleJapan <- dataH3 %>% filter(gender == "Male")
-propMaleToJapan <- prop(~toJapan, success = "Yes", data = maleJapan)
+#Analyze data
+cat("------------------------ Bootstrap: Covariance and Correlation Coefficient", fill=TRUE)
 cnt <- 10000
-set.seed(007)
-bootPercentFemale <- analyzePercentJapan(female, cnt)
-pValueH3 <- prop(~ t <= propMaleToJapan, data = bootPercentFemale)
-print(pValueH3)
+cat(cnt, fill=TRUE, labels = "Using n Itterations: ")
+c <- analyzeCovariance(dataH3, cnt)
+histogram(~ c$t, xlab = "Covariance", ylab = "Density", main="Histogram: COV(Amount Students/Year, BIP/Year [Billion Euros])")
+
+cc <- analyseCorrelationCoefficient(dataH3, cnt)
+histogram(~ cc$t, xlab = "Correlation Coefficient", ylab = "Density", main="Histogram: COR(Amount Students/Year, BIP/Year [Billion Euros])")
+
+cat("------------------------ LM: amountStudents ~ billion_eur", fill=TRUE)
+lmH3 <- lm(amountStudents ~ billion_eur, data=dataH3)
+plotLm(dataH3, "BIP (Billion Euros)", "Amount Students/Year", "LM: Amount Students/Year ~ BIP [Billion Euros]")
+
+cat("------ Summary ------", fill=TRUE)
+summary(lmH3)
+
+cat("------ Anova ------", fill=TRUE)
+anova(lmH3)
 ```
+

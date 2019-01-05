@@ -1,14 +1,14 @@
-#'Prepares data for hypothesis 3
+#'Prepares data for hypothesis 1
 #'@param
 #'@keywords gpclips
 #'@export
 #'@examples
-#'prepareDataH3()
-prepareDataH3 <- function(){
+#'prepareDataH1()
+prepareDataH1 <- function(){
 	#create data frames for hypothesis
-	print("Prepare data for hypothesis three ...")
-	dataH3 <- master_data_y3 %>% select(gender, requestedCountry) %>% mutate(toJapan = ifelse(master_data_y3$requestedCountry == "Japan", "Yes", "No"))
-	return(dataH3)
+	cat("Prepare data for hypothesis one ...", fill=TRUE)
+	dataH1 <- master_data_y3 %>% select(gender, requestedCountry) %>% mutate(toJapan = ifelse(master_data_y3$requestedCountry == "Japan", "Yes", "No"))
+	return(dataH1)
 }
 
 #'Bootstrap method to calculate percentage going to Japan
@@ -24,7 +24,7 @@ calcPercentJapan <- function(x, index){
   return(prop(~toJapan, success = "Yes", data = mySubset))
 }
 
-#'Analyse percent Japan
+#'Analyse percentage Japan
 #'@param
 #'@keywords gpclips
 #'@export
@@ -34,5 +34,5 @@ analyzePercentJapan<- function(d, i){
 	set.seed(1911)
 	pJ <- boot(d, statistic=calcPercentJapan, R=i)
 	print(pJ)
-	histogram(~ pJ$t, xlab = "Percent Female", ylab = "Density", main="Histogram: Percent Female going to Japan")
+	return(pJ)
 }
