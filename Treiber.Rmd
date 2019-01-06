@@ -31,11 +31,14 @@ cat("------------------------ Percentage students going to Japan (by gender)", f
 prop(requestedCountry~gender, success = "Japan", data = dataH1)
 
 #Analyze Data
+cat("------------------------ Entries for bootstrap calculation (by gender)", fill=TRUE)
 female <- dataH1 %>% filter(gender == "Female")
+cat(nrow(female), fill=TRUE, labels = "Using n entries for calculation of female entries: ")
 male <- dataH1 %>% filter(gender == "Male")
+cat(nrow(male), fill=TRUE, labels = "Using n entries for calculation of male entries: ")
 
 propMaleToJapan <- prop(~toJapan, success = "Yes", data = male)
-cat(propMaleToJapan, fill=TRUE, labels = "Percentage male going to Japan: ")
+cat(propMaleToJapan, fill=TRUE, labels = "Percentage male going to Japan (Value to compare in bootstrap method): ")
 
 cat("------------------------ Bootstrap: Percent Female going to Japan", fill=TRUE)
 cnt <- 10000
@@ -75,7 +78,6 @@ anova(lmH2)
 plotLm(dataH2, "Customers' Age [Years]", "Time span from oportunity to deal [Day(s)]", "LM: Time span from oportunity to deal [Day(s)] ~ Customers' Age [Years]")
 ```
 
-
 #6. Hypothese 3
 ```{r}
 #Prepare Data
@@ -104,4 +106,3 @@ summary(lmH3)
 cat("------ Anova ------", fill=TRUE)
 anova(lmH3)
 ```
-

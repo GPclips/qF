@@ -7,7 +7,9 @@
 prepareDataH1 <- function(){
 	#create data frames for hypothesis
 	cat("Prepare data for hypothesis one ...", fill=TRUE)
-	dataH1 <- master_data_y3 %>% select(gender, requestedCountry) %>% mutate(toJapan = ifelse(master_data_y3$requestedCountry == "Japan", "Yes", "No"))
+	dataH1 <- master_data_y3 %>% select(gender, requestedCountry) %>% removeMissings()
+	dataH1 <- dataH1 %>% mutate(toJapan = ifelse(master_data_y3$requestedCountry == "Japan", "Yes", "No"))
+	cat(nrow(dataH1), fill=TRUE, labels = "Using n entries for calculation: ")
 	return(dataH1)
 }
 

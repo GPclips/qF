@@ -12,6 +12,19 @@ init_projekt <- function() {
 	data(bipDeutschlandBis2017)
 }
 
+#'Removes rows with missing values
+#'@param
+#'@keywords init_projekt
+#'@export
+#'@examples
+#'init_projekt()
+removeMissings <- function(d){
+    cat(nrow(d), fill = TRUE, labels = "Entries before removing missings: ")
+    d <- na.omit(d)
+    cat(nrow(d), fill = TRUE, labels = "Entries after removing missings: ")
+    return(d)
+}
+
 #'Plot LM using ggplot
 #'@param xData, xLab, yLab, title
 #'@keywords gpclips
