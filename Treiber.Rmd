@@ -26,7 +26,7 @@ init_projekt()
 dataH1 <- prepareDataH1()
 
 #Graphical Printout
-bargraph(~toJapan | gender, success = "Yes", data = dataH1, type = "percent", main = "Barchart: Percentage Male and Female applying for Japan", xlab = "Applying for Japan", ylab = "Percentage")
+bargraph(~toJapan | gender, success = "Yes", data = dataH1, type = "percent", main = "Percentage Male and Female applying for Japan", xlab = "Applying for Japan", ylab = "Percentage")
 cat("------------------------ Percentage students going to Japan (by gender)", fill=TRUE)
 prop(requestedCountry~gender, success = "Japan", data = dataH1)
 
@@ -42,9 +42,9 @@ cat(propMaleToJapan, fill=TRUE, labels = "Percentage male going to Japan (Value 
 
 cat("------------------------ Bootstrap: Percent Female going to Japan", fill=TRUE)
 cnt <- 10000
-cat(cnt, fill=TRUE, labels = "Using n Itterations: ")
+cat(cnt, fill=TRUE, labels = "Using n Iterations: ")
 bootPercentFemale <- analyzePercentJapan(female, cnt)
-histogram(~ bootPercentFemale$t, xlab = "Percent Female", ylab = "Density", main="Histogram: Percent Female going to Japan")
+histogram(~ bootPercentFemale$t, xlab = "Percent Female", ylab = "Density", main="Percent Female going to Japan")
 
 cat("------------------------ Calculate pValue", fill=TRUE)
 pValueH1 <- prop(~ t <= propMaleToJapan, data = bootPercentFemale)
@@ -57,16 +57,17 @@ cat(pValueH1, fill=TRUE, labels = "pValue: ")
 dataH2 <- prepareDataH2()
 
 #Graphical printout
-xyplot(y ~ x, data=dataH2, xlab="Customers' Age [Years]", ylab="Time span from oportunity to deal [Day(s)]", main="Scatterplot: Time span from oportunity to deal [Day(s)] ~ Customers' Age [Years]")
+xyplot(y ~ x, data=dataH2, xlab="Customers' Age [Years]", ylab="Time span from oportunity to deal [Day(s)]", main="Time span from oportunity to deal [Day(s)] ~ Customers' Age [Years]")
 
 #Analyze data
 cat("------------------------ Bootstrap: Covariance and Correlation Coefficient", fill=TRUE)
 cnt <- 10000
+cat(cnt, fill=TRUE, labels = "Using n Iterations: ")
 c <- analyzeCovariance(dataH2, cnt)
-histogram(~ c$t, xlab = "Covariance", ylab = "Density", main="Histogram: COV(Customers' Age [Years], Time span from oportunity to deal [Day(s)])")
+histogram(~ c$t, xlab = "Covariance", ylab = "Density", main="COV(Customers' Age [Years], Time span from oportunity to deal [Day(s)])")
 
 cc <- analyseCorrelationCoefficient(dataH2, cnt)
-histogram(~ cc$t, xlab = "Correlation Coefficient", ylab = "Density", main="Histogram: COR(Customers' Age [Years], Time span from oportunity to deal [Day(s)])")
+histogram(~ cc$t, xlab = "Correlation Coefficient", ylab = "Density", main="COR(Customers' Age [Years], Time span from oportunity to deal [Day(s)])")
 
 cat("------------------------ LM: amountStudents ~ billion_eur", fill=TRUE)
 lmH2 <- lm(y ~ x, data=dataH2)
@@ -75,7 +76,8 @@ summary(lmH2)
 
 cat("------ Anova ------", fill=TRUE)
 anova(lmH2)
-plotLm(dataH2, "Customers' Age [Years]", "Time span from oportunity to deal [Day(s)]", "LM: Time span from oportunity to deal [Day(s)] ~ Customers' Age [Years]")
+plotLm(dataH2, "Customers' Age [Years]", "Time span from oportunity to deal [Day(s)]", "Time span from oportunity to deal [Day(s)] ~ Customers' Age [Years]")
+
 ```
 
 #6. Hypothese 3
@@ -84,21 +86,21 @@ plotLm(dataH2, "Customers' Age [Years]", "Time span from oportunity to deal [Day
 dataH3 <- prepareDataH3()
 
 #Graphical printout
-xyplot(amountStudents ~ billion_eur, data=dataH3, xlab="BIP/Year [Billion Euros]", ylab="Amount Students/Year", main="Scatterplot: Amount Students/Year ~ BIP/Year [Billion Euros]")
+xyplot(amountStudents ~ billion_eur, data=dataH3, xlab="BIP/Year [Billion Euros]", ylab="Amount Students/Year", main="Amount Students/Year ~ BIP/Year [Billion Euros]")
 
 #Analyze data
 cat("------------------------ Bootstrap: Covariance and Correlation Coefficient", fill=TRUE)
 cnt <- 10000
 cat(cnt, fill=TRUE, labels = "Using n Itterations: ")
 c <- analyzeCovariance(dataH3, cnt)
-histogram(~ c$t, xlab = "Covariance", ylab = "Density", main="Histogram: COV(Amount Students/Year, BIP/Year [Billion Euros])")
+histogram(~ c$t, xlab = "Covariance", ylab = "Density", main="COV(Amount Students/Year, BIP/Year [Billion Euros])")
 
 cc <- analyseCorrelationCoefficient(dataH3, cnt)
-histogram(~ cc$t, xlab = "Correlation Coefficient", ylab = "Density", main="Histogram: COR(Amount Students/Year, BIP/Year [Billion Euros])")
+histogram(~ cc$t, xlab = "Correlation Coefficient", ylab = "Density", main="COR(Amount Students/Year, BIP/Year [Billion Euros])")
 
 cat("------------------------ LM: amountStudents ~ billion_eur", fill=TRUE)
 lmH3 <- lm(amountStudents ~ billion_eur, data=dataH3)
-plotLm(dataH3, "BIP (Billion Euros)", "Amount Students/Year", "LM: Amount Students/Year ~ BIP [Billion Euros]")
+plotLm(dataH3, "BIP (Billion Euros)", "Amount Students/Year", "Amount Students/Year ~ BIP [Billion Euros]")
 
 cat("------ Summary ------", fill=TRUE)
 summary(lmH3)
