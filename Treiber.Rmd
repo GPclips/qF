@@ -26,29 +26,45 @@ init_projekt()
 dataH1 <- prepareDataH1()
 
 #Graphical Printout
-bargraph(~toJapan | gender, success = "Yes", data = dataH1, type = "percent", main = "Percentage Male and Female applying for Japan", xlab = "Applying for Japan", ylab = "Percentage")
-cat("------------------------ Percentage students going to Japan (by gender)", fill=TRUE)
-prop(requestedCountry~gender, success = "Japan", data = dataH1)
+bargraph(~toJapan | gender, success = "Yes", data = dataH1, type = "percent", main = "Percent Male and Female applying for Japan", xlab = "Applying for Japan", ylab = "Percentage")
+cat("------------------------ Absolute: students going to Japan (by gender)", fill=TRUE)
+prop(toJapan~gender, success = "Yes", data = dataH1, format = "count")
+cat("------------------------ Percent: students going to Japan (by gender)", fill=TRUE)
+prop(toJapan~gender, success = "Yes", data = dataH1)
+
+
+cat("------------------------ Percent: students going to Japan (by gender of all data)", fill=TRUE)
+toJapan <- dataH1 %>% filter(requestedCountry == "Japan")
+
+cat("Percent: female going to Japan (by gender of all data)", fill=TRUE)
+femaleToJapan <- toJapan %>% filter(gender == "Female")
+nrow(femaleToJapan)/nrow(dataH1)
+cat("Percent: male going to Japan (by gender of all data)", fill=TRUE)
+maleToJapan <- toJapan %>% filter(gender == "Male")
+propMaleToJapan <- nrow(maleToJapan)/nrow(dataH1)
+propMaleToJapan
 
 #Analyze Data
-cat("------------------------ Entries for bootstrap calculation (by gender)", fill=TRUE)
-female <- dataH1 %>% filter(gender == "Female")
-cat(nrow(female), fill=TRUE, labels = "Using n entries for calculation of female entries: ")
-male <- dataH1 %>% filter(gender == "Male")
-cat(nrow(male), fill=TRUE, labels = "Using n entries for calculation of male entries: ")
-
-propMaleToJapan <- prop(~toJapan, success = "Yes", data = male)
-cat(propMaleToJapan, fill=TRUE, labels = "Percentage male going to Japan (Value to compare in bootstrap method): ")
-
-cat("------------------------ Bootstrap: Percent Female going to Japan", fill=TRUE)
+cat("------------------------ Bootstrap: Female going to Japan", fill=TRUE)
 cnt <- 10000
 cat(cnt, fill=TRUE, labels = "Using n Iterations: ")
-bootPercentFemale <- analyzePercentJapan(female, cnt)
-histogram(~ bootPercentFemale$t, xlab = "Percent Female", ylab = "Density", main="Percent Female going to Japan")
+cat("Bootstrap: Percent Female going to Japan", fill=TRUE)
+bootPercentFemaleOfDataH1 <- analyzePercentJapan(dataH1, cnt)
+histogram(~ bootPercentFemaleOfDataH1$t, xlab = "Percent Female", ylab = "Density", main="Percent Female going to Japan")
+cat("Bootstrap: Abs Female going to Japan", fill=TRUE)
+bootAbsFemaleOfDataH1 <- analyzeAbsJapan(dataH1, cnt)
+histogram(~ bootAbsFemaleOfDataH1$t, xlab = "Abs Female", ylab = "Density", main="Abs Female going to Japan")
 
-cat("------------------------ Calculate pValue", fill=TRUE)
-pValueH1 <- prop(~ t <= propMaleToJapan, data = bootPercentFemale)
-cat(pValueH1, fill=TRUE, labels = "pValue: ")
+cat("------------------------ Calculate pValue of percent calculation", fill=TRUE)
+bwplot(bootPercentFemaleOfDataH1$t)
+favstats(bootPercentFemaleOfDataH1$t)
+pValueH1percentCalc <- prop(~ t <= propMaleToJapan, data = bootPercentFemaleOfDataH1)
+cat(pValueH1percentCalc, fill=TRUE, labels = "pValue (percent): ")
+
+bwplot(bootAbsFemaleOfDataH1$t)
+favstats(bootAbsFemaleOfDataH1$t)
+pValueH1AbsCalc <- prop(~ t <= nrow(maleToJapan), data = bootAbsFemaleOfDataH1)
+cat(pValueH1AbsCalc, fill=TRUE, labels = "pValue (abs): ")
 ```
 
 #5. Hypothese 2

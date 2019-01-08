@@ -2,12 +2,12 @@
 % Please edit documentation in R/h1.R
 \name{calcPercentJapan}
 \alias{calcPercentJapan}
-\title{Bootstrap method to calculate percentage going to Japan}
+\title{Bootstrap method to calculate percentage female going to Japan}
 \usage{
 calcPercentJapan(x, index)
 }
 \description{
-Bootstrap method to calculate percentage going to Japan
+Bootstrap method to calculate percentage female going to Japan
 }
 \examples{
 calcPercentJapan()
