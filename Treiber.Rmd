@@ -32,7 +32,6 @@ prop(toJapan~gender, success = "Yes", data = dataH1, format = "count")
 cat("------------------------ Percent: students going to Japan (by gender)", fill=TRUE)
 prop(toJapan~gender, success = "Yes", data = dataH1)
 
-
 cat("------------------------ Percent: students going to Japan (by gender of all data)", fill=TRUE)
 toJapan <- dataH1 %>% filter(requestedCountry == "Japan")
 
@@ -56,13 +55,13 @@ bootAbsFemaleOfDataH1 <- analyzeAbsJapan(dataH1, cnt)
 histogram(~ bootAbsFemaleOfDataH1$t, xlab = "Abs Female", ylab = "Density", main="Abs Female going to Japan")
 
 cat("------------------------ Calculate pValue of percent calculation", fill=TRUE)
-bwplot(bootPercentFemaleOfDataH1$t)
+bwplot(bootPercentFemaleOfDataH1$t, xlab ="Bootstrap: percent female", main="Percent Female going to Japan")
 favstats(bootPercentFemaleOfDataH1$t)
 pValueH1percentCalc <- prop(~ t <= propMaleToJapan, data = bootPercentFemaleOfDataH1)
 cat(pValueH1percentCalc, fill=TRUE, labels = "pValue (percent): ")
 
 cat("------------------------ Calculate pValue of abs calculation", fill=TRUE)
-bwplot(bootAbsFemaleOfDataH1$t)
+bwplot(bootAbsFemaleOfDataH1$t, xlab ="Bootstrap: abs female", main="Abs Female going to Japan")
 favstats(bootAbsFemaleOfDataH1$t)
 pValueH1AbsCalc <- prop(~ t <= nrow(maleToJapan), data = bootAbsFemaleOfDataH1)
 cat(pValueH1AbsCalc, fill=TRUE, labels = "pValue (abs): ")
