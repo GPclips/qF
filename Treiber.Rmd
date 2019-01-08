@@ -61,6 +61,7 @@ favstats(bootPercentFemaleOfDataH1$t)
 pValueH1percentCalc <- prop(~ t <= propMaleToJapan, data = bootPercentFemaleOfDataH1)
 cat(pValueH1percentCalc, fill=TRUE, labels = "pValue (percent): ")
 
+cat("------------------------ Calculate pValue of abs calculation", fill=TRUE)
 bwplot(bootAbsFemaleOfDataH1$t)
 favstats(bootAbsFemaleOfDataH1$t)
 pValueH1AbsCalc <- prop(~ t <= nrow(maleToJapan), data = bootAbsFemaleOfDataH1)
