@@ -73,7 +73,13 @@ cat(pValueH1AbsCalc, fill=TRUE, labels = "pValue (abs): ")
 dataH2 <- prepareDataH2()
 
 #Graphical printout
-xyplot(y ~ x, data=dataH2, xlab="Customers' Age [Years]", ylab="Time span from oportunity to deal [Day(s)]", main="Time span from oportunity to deal [Day(s)] ~ Customers' Age [Years]")
+xyplot(timeSpanOpportunityToDeal ~ ageInYears, data=dataH2, xlab="Customers' Age [Years]", ylab="Time span from oportunity to deal [Day(s)]", main="Time span from oportunity to deal [Day(s)] ~ Customers' Age [Years]")
+
+#Remove Outliers
+dataH2 <- dataH2 %>% filter(ageInYears <= 25) %>% filter(timeSpanOpportunityToDeal <= 600)
+cat(nrow(dataH2), fill = TRUE, labels = "Using n after removing outliers: ")
+
+xyplot(timeSpanOpportunityToDeal ~ ageInYears, data=dataH2, xlab="Customers' Age [Years]", ylab="Time span from oportunity to deal [Day(s)]", main="Time span from oportunity to deal [Day(s)] ~ Customers' Age [Years]")
 
 #Analyze data
 cat("------------------------ Bootstrap: Covariance and Correlation Coefficient", fill=TRUE)
