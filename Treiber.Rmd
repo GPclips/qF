@@ -91,7 +91,7 @@ histogram(~ c$t, xlab = "Covariance", ylab = "Density", main="COV(Customers' Age
 cc <- analyseCorrelationCoefficient(dataH2, cnt)
 histogram(~ cc$t, xlab = "Correlation Coefficient", ylab = "Density", main="COR(Customers' Age [Years], Time span from oportunity to deal [Day(s)])")
 
-cat("------------------------ LM: amountStudents ~ billion_eur", fill=TRUE)
+cat("------------------------ LM: timeSpanOpportunityToDeal ~ ageInYears", fill=TRUE)
 lmH2 <- lm(y ~ x, data=dataH2)
 cat("------ Summary ------", fill=TRUE)
 summary(lmH2)
